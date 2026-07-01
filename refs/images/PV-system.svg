@@ -1,0 +1,441 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1030" viewBox="0 0 1240 1030" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid AC/DC Microgrid Topology</title>
+  <desc id="desc">
+    Hybrid AC/DC microgrid architecture with AC and DC buses, loads, backup sources,
+    renewable energy sources, energy storage, PV arrays, bidirectional converter PCE-BDI,
+    grid-connected interface PCE-GCI, and utility grid connection.
+  </desc>
+
+  <defs>
+    <style>
+      .zone {
+        fill-opacity: 0.26;
+        stroke-width: 1.8;
+        stroke-dasharray: 10 8 2 8;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .zone-ac {
+        fill: #edf5fa;
+        stroke: #8ca5b5;
+      }
+
+      .zone-dc {
+        fill: #fbf7ee;
+        stroke: #b6a88a;
+      }
+
+      .node {
+        fill: #ffffff;
+        stroke: #53616b;
+        stroke-width: 2;
+        rx: 16;
+        ry: 16;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .node-dashed {
+        stroke-dasharray: 3.4 4.6;
+      }
+
+      .node-grid {
+        stroke: #1f2b33;
+        stroke-width: 2.8;
+      }
+
+      .node-bdi {
+        fill: #f8fbfd;
+        stroke: #587488;
+        stroke-width: 2.2;
+        stroke-dasharray: 4 5;
+      }
+
+      .node-gci {
+        fill: #f7fafb;
+        stroke: #263741;
+        stroke-width: 2.8;
+      }
+
+      .bus {
+        fill: none;
+        stroke: #64747f;
+        stroke-width: 2.2;
+        stroke-dasharray: 4 4;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .grid-line {
+        fill: none;
+        stroke: #202d35;
+        stroke-width: 3;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .flow {
+        fill: none;
+        stroke: #566771;
+        stroke-width: 1.7;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .flow-soft {
+        fill: none;
+        stroke: #7a8c95;
+        stroke-width: 1.45;
+        stroke-dasharray: 4 4;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .flow-grid {
+        fill: none;
+        stroke: #24333b;
+        stroke-width: 1.85;
+        vector-effect: non-scaling-stroke;
+      }
+
+      .zone-label {
+        font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        fill: #3e4e58;
+      }
+
+      .node-title {
+        font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+        font-size: 19px;
+        font-weight: 650;
+        fill: #394850;
+        text-anchor: middle;
+      }
+
+      .node-subtitle {
+        font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+        font-size: 12px;
+        fill: #7a8a93;
+        text-anchor: middle;
+      }
+
+      .converter-title {
+        font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        fill: #354b59;
+        text-anchor: middle;
+      }
+
+      .signal {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 13px;
+        font-style: italic;
+        fill: #485963;
+      }
+
+      .signal-muted {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 12px;
+        font-style: italic;
+        fill: #72838c;
+      }
+
+      .sub {
+        font-size: 72%;
+        baseline-shift: sub;
+      }
+
+      .small-label {
+        font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        fill: #6d7c84;
+      }
+
+      .legend {
+        font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+        font-size: 12px;
+        fill: #6a7982;
+      }
+    </style>
+
+    <marker id="arrow-dark" markerWidth="8" markerHeight="8" refX="6.3" refY="3.8" orient="auto">
+      <path d="M0,0 L7.2,3.8 L0,7.6 Z" fill="#566771"/>
+    </marker>
+
+    <marker id="arrow-soft" markerWidth="8" markerHeight="8" refX="6.3" refY="3.8" orient="auto">
+      <path d="M0,0 L7.2,3.8 L0,7.6 Z" fill="#7a8c95"/>
+    </marker>
+
+    <marker id="arrow-grid" markerWidth="8" markerHeight="8" refX="6.3" refY="3.8" orient="auto">
+      <path d="M0,0 L7.2,3.8 L0,7.6 Z" fill="#24333b"/>
+    </marker>
+
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#2b3a42" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- AC domain -->
+  <g>
+    <rect class="zone zone-ac" x="16" y="16" width="1152" height="282" rx="24"/>
+    <text class="zone-label" x="37" y="279">AC</text>
+    <text class="small-label" x="76" y="279">AC distribution domain</text>
+  </g>
+
+  <!-- DC domain -->
+  <g>
+    <rect class="zone zone-dc" x="16" y="588" width="1152" height="286" rx="24"/>
+    <text class="zone-label" x="37" y="617">DC</text>
+    <text class="small-label" x="77" y="617">DC distribution domain</text>
+  </g>
+
+  <!-- AC bus -->
+  <g>
+    <path class="bus" d="M272 238 H1054"/>
+    <text class="signal-muted" x="500" y="228">AC common bus</text>
+  </g>
+
+  <!-- DC bus -->
+  <g>
+    <path class="bus" d="M113 632 H874"/>
+    <text class="signal-muted" x="446" y="622">DC common bus</text>
+  </g>
+
+  <!-- Back up source(s) on AC -->
+  <g filter="url(#soft-shadow)">
+    <title>Backup sources connected to the AC bus</title>
+    <rect class="node node-dashed" x="194" y="32" width="154" height="116"/>
+    <text class="node-title" x="271" y="73">
+      <tspan x="271">Back up</tspan>
+      <tspan x="271" dy="25">source(s)</tspan>
+      <tspan x="271" dy="25">on AC</tspan>
+    </text>
+  </g>
+
+  <path class="flow-soft" d="M272 148 V205 H272 V238" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="214" y="176">I<tspan class="sub">BUac</tspan></text>
+  <text class="signal" x="214" y="194">V<tspan class="sub">BUac</tspan></text>
+  <text class="signal" x="214" y="212">P<tspan class="sub">BUac</tspan></text>
+
+  <!-- Other RNE source(s) on AC -->
+  <g filter="url(#soft-shadow)">
+    <title>Other renewable energy sources connected to the AC bus</title>
+    <rect class="node node-dashed" x="383" y="32" width="154" height="116"/>
+    <text class="node-title" x="460" y="73">
+      <tspan x="460">Other RNE</tspan>
+      <tspan x="460" dy="25">source(s)</tspan>
+      <tspan x="460" dy="25">on AC</tspan>
+    </text>
+  </g>
+
+  <path class="flow-soft" d="M460 148 V238" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="398" y="191">P<tspan class="sub">REac</tspan></text>
+
+  <!-- Loads on AC -->
+  <g filter="url(#soft-shadow)">
+    <title>AC loads served from the AC bus</title>
+    <rect class="node node-dashed" x="758" y="32" width="154" height="116"/>
+    <text class="node-title" x="835" y="80">
+      <tspan x="835">Load(s)</tspan>
+      <tspan x="835" dy="26">on AC</tspan>
+    </text>
+  </g>
+
+  <path class="flow-soft" d="M835 238 V148" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="855" y="176">I<tspan class="sub">Lac</tspan></text>
+  <text class="signal" x="855" y="194">V<tspan class="sub">Lac</tspan></text>
+  <text class="signal" x="855" y="212">P<tspan class="sub">Lac</tspan></text>
+  <path class="flow-soft" d="M724 226 H789" marker-end="url(#arrow-soft)"/>
+  <text class="signal-muted" x="718" y="207">I<tspan class="sub">TL,ac</tspan>, P<tspan class="sub">TL,ac</tspan></text>
+  <path class="flow-soft" d="M789 250 H724" marker-end="url(#arrow-soft)"/>
+  <text class="signal-muted" x="718" y="268">I<tspan class="sub">TBac</tspan>, P<tspan class="sub">TBac</tspan></text>
+
+  <!-- Utility grid -->
+  <g filter="url(#soft-shadow)">
+    <title>Utility grid line connected through PCE-GCI</title>
+    <rect class="node node-grid" x="981" y="32" width="154" height="116"/>
+    <text class="node-title" x="1058" y="80">
+      <tspan x="1058">Utility</tspan>
+      <tspan x="1058" dy="26">grid line</tspan>
+    </text>
+  </g>
+
+  <!-- Grid line and AC interface -->
+  <path class="grid-line" d="M1058 148 V393"/>
+  <path class="flow-grid" d="M1045 226 V178" marker-end="url(#arrow-grid)"/>
+  <path class="flow-grid" d="M1071 178 V226" marker-end="url(#arrow-grid)"/>
+  <text class="signal" x="996" y="184">I<tspan class="sub">TG</tspan></text>
+  <text class="signal" x="996" y="202">P<tspan class="sub">TG</tspan></text>
+  <text class="signal" x="1080" y="184">I<tspan class="sub">FG</tspan></text>
+  <text class="signal" x="1080" y="202">P<tspan class="sub">FG</tspan></text>
+  <text class="signal" x="1014" y="258">V<tspan class="sub">G</tspan></text>
+
+  <!-- PCE-BDI -->
+  <g filter="url(#soft-shadow)">
+    <title>PCE-BDI bidirectional AC/DC power conversion interface</title>
+    <rect class="node node-bdi" x="566" y="395" width="206" height="132"/>
+    <text class="converter-title" x="669" y="455">PCE-BDI</text>
+    <text class="node-subtitle" x="669" y="482">power conditioning equipment</text>
+    <text class="node-subtitle" x="669" y="501">bi-directional inverter</text>
+  </g>
+
+  <!-- AC bus to BDI -->
+  <path class="bus" d="M669 238 V395"/>
+  <path class="flow-soft" d="M642 365 V318" marker-end="url(#arrow-soft)"/>
+  <path class="flow-soft" d="M696 318 V365" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="592" y="322">I<tspan class="sub">FPac</tspan></text>
+  <text class="signal" x="592" y="340">V<tspan class="sub">Pac</tspan></text>
+  <text class="signal" x="592" y="358">P<tspan class="sub">FPac</tspan></text>
+  <text class="signal" x="714" y="330">I<tspan class="sub">TPac</tspan></text>
+  <text class="signal" x="714" y="348">P<tspan class="sub">TPac</tspan></text>
+
+  <!-- BDI to DC bus -->
+  <path class="bus" d="M669 527 V632"/>
+  <path class="flow-soft" d="M642 608 V561" marker-end="url(#arrow-soft)"/>
+  <path class="flow-soft" d="M696 561 V608" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="610" y="562">I<tspan class="sub">TP</tspan></text>
+  <text class="signal" x="610" y="580">P<tspan class="sub">TP</tspan></text>
+  <text class="signal-muted" x="610" y="598">V<tspan class="sub">Pdc</tspan></text>
+  <text class="signal" x="708" y="562">I<tspan class="sub">FP</tspan></text>
+  <text class="signal" x="708" y="580">P<tspan class="sub">FP</tspan></text>
+
+  <!-- PCE-GCI -->
+  <g filter="url(#soft-shadow)">
+    <title>PCE-GCI grid-connected interface between utility grid and PV array</title>
+    <rect class="node node-gci" x="968" y="395" width="182" height="132"/>
+    <text class="converter-title" x="1059" y="455">PCE-GCI</text>
+    <text class="node-subtitle" x="1059" y="482">power conditioning equipment</text>
+    <text class="node-subtitle" x="1059" y="501">grid-connected inverter</text>
+  </g>
+
+  <path class="flow-grid" d="M1028 388 V344" marker-end="url(#arrow-grid)"/>
+  <text class="signal" x="960" y="348">I<tspan class="sub">Aac,ac</tspan></text>
+  <text class="signal" x="960" y="366">V<tspan class="sub">Aac,ac</tspan></text>
+  <text class="signal" x="960" y="384">P<tspan class="sub">Aac,ac</tspan></text>
+
+  <!-- Load(s) on DC -->
+  <g filter="url(#soft-shadow)">
+    <title>DC loads supplied from the DC bus</title>
+    <rect class="node node-dashed" x="40" y="739" width="154" height="116"/>
+    <text class="node-title" x="117" y="786">
+      <tspan x="117">Load(s)</tspan>
+      <tspan x="117" dy="25">on DC</tspan>
+    </text>
+  </g>
+
+  <path class="flow-soft" d="M117 632 V739" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="70" y="668">I<tspan class="sub">Ldc</tspan></text>
+  <text class="signal" x="70" y="686">V<tspan class="sub">Ldc</tspan></text>
+  <text class="signal" x="70" y="704">P<tspan class="sub">Ldc</tspan></text>
+
+  <!-- Back up source(s) on DC -->
+  <g filter="url(#soft-shadow)">
+    <title>Backup sources connected to the DC bus</title>
+    <rect class="node node-dashed" x="245" y="739" width="154" height="116"/>
+    <text class="node-title" x="322" y="780">
+      <tspan x="322">Back up</tspan>
+      <tspan x="322" dy="25">source(s)</tspan>
+      <tspan x="322" dy="25">on DC</tspan>
+    </text>
+  </g>
+
+  <path class="flow-soft" d="M322 739 V632" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="265" y="668">I<tspan class="sub">BUdc</tspan></text>
+  <text class="signal" x="265" y="686">V<tspan class="sub">BUdc</tspan></text>
+  <text class="signal" x="265" y="704">P<tspan class="sub">BUdc</tspan></text>
+
+  <!-- Other RNE source(s) on DC -->
+  <g filter="url(#soft-shadow)">
+    <title>Other renewable energy sources connected to the DC bus</title>
+    <rect class="node node-dashed" x="411" y="739" width="154" height="116"/>
+    <text class="node-title" x="488" y="780">
+      <tspan x="488">Other RNE</tspan>
+      <tspan x="488" dy="25">source(s)</tspan>
+      <tspan x="488" dy="25">on DC</tspan>
+    </text>
+  </g>
+
+  <path class="flow-soft" d="M488 739 V632" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="422" y="694">P<tspan class="sub">REdc</tspan></text>
+
+  <!-- Energy storage -->
+  <g filter="url(#soft-shadow)">
+    <title>Energy storage connected to the DC bus</title>
+    <rect class="node node-dashed" x="578" y="739" width="174" height="116"/>
+    <text class="node-title" x="665" y="788">
+      <tspan x="665">Energy</tspan>
+      <tspan x="665" dy="25">storage</tspan>
+    </text>
+  </g>
+
+  <path class="flow-soft" d="M651 719 V632" marker-end="url(#arrow-soft)"/>
+  <path class="flow-soft" d="M679 632 V719" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="600" y="668">V<tspan class="sub">S</tspan></text>
+  <text class="signal" x="600" y="686">I<tspan class="sub">FS</tspan></text>
+  <text class="signal" x="600" y="704">P<tspan class="sub">FS</tspan></text>
+  <text class="signal" x="700" y="690">I<tspan class="sub">TS</tspan></text>
+  <text class="signal" x="700" y="708">P<tspan class="sub">TS</tspan></text>
+
+  <!-- PV array on DC bus -->
+  <g filter="url(#soft-shadow)">
+    <title>PV array feeding the DC bus</title>
+    <rect class="node node-dashed" x="778" y="739" width="154" height="116"/>
+    <text class="node-title" x="855" y="798">PV array</text>
+    <text class="node-subtitle" x="855" y="840">DC-coupled PV</text>
+  </g>
+
+  <path class="flow-soft" d="M855 739 V632" marker-end="url(#arrow-soft)"/>
+  <text class="signal" x="875" y="668">I<tspan class="sub">Adc,dc</tspan></text>
+  <text class="signal" x="875" y="686">V<tspan class="sub">Adc,dc</tspan></text>
+  <text class="signal" x="875" y="704">P<tspan class="sub">Adc,dc</tspan></text>
+
+  <!-- Grid-connected PV line -->
+  <path class="grid-line" d="M1058 527 V739"/>
+  <path class="flow-grid" d="M1028 578 V534" marker-end="url(#arrow-grid)"/>
+  <text class="signal" x="960" y="538">I<tspan class="sub">Adc,ac</tspan></text>
+  <text class="signal" x="960" y="556">V<tspan class="sub">Adc,ac</tspan></text>
+  <text class="signal" x="960" y="574">P<tspan class="sub">Adc,ac</tspan></text>
+
+  <!-- PV array through PCE-GCI -->
+  <g filter="url(#soft-shadow)">
+    <title>PV array connected to utility grid via PCE-GCI</title>
+    <rect class="node node-grid" x="981" y="739" width="154" height="116"/>
+    <text class="node-title" x="1058" y="798">PV array</text>
+    <text class="node-subtitle" x="1058" y="840">grid-connected PV</text>
+  </g>
+
+  <!-- Solar irradiation / Gi x BIF -->
+  <g>
+    <path class="flow-soft" d="M855 935 V870" marker-end="url(#arrow-soft)"/>
+    <text class="signal" transform="rotate(-90 836 937)" x="836" y="937">G<tspan class="sub">i</tspan> × BIF</text>
+
+    <path class="flow-soft" d="M1058 935 V870" marker-end="url(#arrow-soft)"/>
+    <text class="signal" transform="rotate(-90 1039 937)" x="1039" y="937">G<tspan class="sub">i</tspan> × BIF</text>
+
+    <circle cx="957" cy="931" r="28" fill="none" stroke="#91a6b0" stroke-width="2"/>
+    <circle cx="957" cy="931" r="15" fill="#f8edbd" stroke="#c4ad5d" stroke-width="1.5"/>
+
+    <g stroke="#91a6b0" stroke-width="2" fill="none">
+      <path d="M957 888 V871"/>
+      <path d="M957 974 V991"/>
+      <path d="M914 931 H897"/>
+      <path d="M1000 931 H1017"/>
+      <path d="M927 901 L915 889"/>
+      <path d="M987 961 L999 973"/>
+      <path d="M987 901 L999 889"/>
+      <path d="M927 961 L915 973"/>
+    </g>
+    <text class="small-label" x="957" y="1008" text-anchor="middle">solar irradiation</text>
+  </g>
+
+  <!-- Light legend -->
+  <g transform="translate(38 952)">
+    <path class="flow-soft" d="M0 0 H48" marker-end="url(#arrow-soft)"/>
+    <text class="legend" x="58" y="4">local / auxiliary power-flow path</text>
+
+    <path class="flow-grid" d="M318 0 H366" marker-end="url(#arrow-grid)"/>
+    <text class="legend" x="376" y="4">utility-grid coupled path</text>
+
+    <path class="bus" d="M610 0 H658"/>
+    <text class="legend" x="668" y="4">AC / DC common bus</text>
+  </g>
+</svg>

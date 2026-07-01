@@ -1,0 +1,471 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1100"
+  height="540"
+  viewBox="0 0 1100 540"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title id="title">Data acquisition, storage and reporting timeline</title>
+  <desc id="desc">
+    A layered timeline showing dense samples, sparse stored records, and periodic reports with sampling interval, recording interval and reporting period.
+  </desc>
+
+  <defs>
+    <style>
+      .label-title {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        fill: #24313f;
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 3px;
+        paint-order: stroke;
+        stroke-linejoin: round;
+        letter-spacing: 0.2px;
+      }
+
+      .label-sub {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        fill: #3f4f63;
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 3px;
+        paint-order: stroke;
+        stroke-linejoin: round;
+        letter-spacing: 0.2px;
+      }
+
+      .annotation {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 18px;
+        font-weight: 650;
+        fill: #2f3f52;
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 3px;
+        paint-order: stroke;
+        stroke-linejoin: round;
+      }
+
+      .small-annotation {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        fill: #3f4f63;
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 2.5px;
+        paint-order: stroke;
+        stroke-linejoin: round;
+      }
+
+      .mono {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+        font-size: 15px;
+        fill: #2f3f52;
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 3px;
+        paint-order: stroke;
+        stroke-linejoin: round;
+      }
+
+      .axis-text {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        fill: #24313f;
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 3px;
+        paint-order: stroke;
+        stroke-linejoin: round;
+      }
+
+      .axis-sub {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        fill: #3f4f63;
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 2.5px;
+        paint-order: stroke;
+        stroke-linejoin: round;
+        font-style: italic;
+      }
+
+      .guide {
+        stroke: #9aa8b8;
+        stroke-width: 1.4;
+        stroke-linecap: round;
+      }
+
+      .fine-guide {
+        stroke: #aab6c4;
+        stroke-width: 1.1;
+        stroke-linecap: round;
+      }
+
+      .sample-line {
+        stroke: #9fb0bd;
+        stroke-width: 2;
+        stroke-linecap: round;
+      }
+
+      .record-line {
+        stroke: #9fb0c3;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+      }
+
+      .report-line {
+        stroke: #bd9aa7;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+
+      .sample-dot {
+        fill: #253845;
+        stroke: #ffffff;
+        stroke-width: 1;
+      }
+
+      .record-dot {
+        fill: #455f78;
+        stroke: #ffffff;
+        stroke-width: 1.2;
+      }
+
+      .report-dot {
+        fill: #8d5666;
+        stroke: #ffffff;
+        stroke-width: 1.5;
+      }
+
+      .interval {
+        stroke: #62758b;
+        stroke-width: 2;
+        stroke-linecap: round;
+      }
+
+      .period {
+        stroke: #62758b;
+        stroke-width: 2.2;
+        stroke-linecap: round;
+      }
+
+      .axis {
+        stroke: #62758b;
+        stroke-width: 2.6;
+        stroke-linecap: round;
+      }
+
+      .layer-rule {
+        stroke: #cbd5e1;
+        stroke-width: 1.2;
+      }
+
+      .layer-chip-text {
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 12px;
+        font-weight: 750;
+        letter-spacing: 1.1px;
+      }
+    </style>
+
+    <marker
+      id="arrowEnd"
+      viewBox="0 0 10 10"
+      refX="9"
+      refY="5"
+      markerWidth="8"
+      markerHeight="8"
+      orient="auto-start-reverse"
+    >
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#62758b" />
+    </marker>
+
+    <marker
+      id="thinArrowEnd"
+      viewBox="0 0 10 10"
+      refX="8.5"
+      refY="5"
+      markerWidth="7"
+      markerHeight="7"
+      orient="auto"
+    >
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#62758b" />
+    </marker>
+
+    <marker
+      id="thinArrowStart"
+      viewBox="0 0 10 10"
+      refX="1.5"
+      refY="5"
+      markerWidth="7"
+      markerHeight="7"
+      orient="auto"
+    >
+      <path d="M 10 0 L 0 5 L 10 10 z" fill="#62758b" />
+    </marker>
+
+    <filter id="softShadow" x="-10%" y="-20%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.2" flood-color="#111827" flood-opacity="0.12" />
+    </filter>
+
+    <g id="sampleMark">
+      <line class="sample-line" x1="0" y1="0" x2="0" y2="52" />
+      <rect class="sample-dot" x="-4.7" y="-4.7" width="9.4" height="9.4" rx="1.2" transform="rotate(45)" />
+    </g>
+
+    <g id="recordMark">
+      <line class="record-line" x1="0" y1="0" x2="0" y2="62" />
+      <rect class="record-dot" x="-7" y="-7" width="14" height="14" rx="1.8" transform="rotate(45)" filter="url(#softShadow)" />
+    </g>
+
+    <g id="reportMark">
+      <line class="report-line" x1="0" y1="0" x2="0" y2="72" />
+      <rect class="report-dot" x="-10" y="-10" width="20" height="20" rx="2.4" transform="rotate(45)" filter="url(#softShadow)" />
+    </g>
+  </defs>
+
+  <!-- layer separators -->
+  <line class="layer-rule" x1="210" y1="128" x2="1045" y2="128" />
+  <line class="layer-rule" x1="210" y1="268" x2="1045" y2="268" />
+  <line class="layer-rule" x1="210" y1="430" x2="1045" y2="430" />
+
+  <!-- left layer labels -->
+  <g>
+    <rect x="34" y="22" width="148" height="32" rx="16" fill="#edf5f7" />
+    <text class="layer-chip-text" x="108" y="43" text-anchor="middle" fill="#52727e">ACQUISITION</text>
+
+    <text class="label-title" x="142" y="72" text-anchor="middle">Samples</text>
+    <text class="label-sub" x="142" y="98" text-anchor="middle">(Data acquisition)</text>
+  </g>
+
+  <g>
+    <rect x="34" y="154" width="148" height="32" rx="16" fill="#eef3f8" />
+    <text class="layer-chip-text" x="108" y="175" text-anchor="middle" fill="#536e88">STORAGE</text>
+
+    <text class="label-title" x="142" y="203" text-anchor="middle">Records</text>
+    <text class="label-sub" x="142" y="229" text-anchor="middle">(Data storage)</text>
+  </g>
+
+  <g>
+    <rect x="34" y="292" width="148" height="32" rx="16" fill="#f7eef2" />
+    <text class="layer-chip-text" x="108" y="313" text-anchor="middle" fill="#925f70">REPORTING</text>
+
+    <text class="label-title" x="142" y="341" text-anchor="middle">Reports</text>
+    <text class="label-sub" x="132" y="367" text-anchor="middle">(Summary</text>
+    <text class="label-sub" x="132" y="393" text-anchor="middle">parameters &amp; metrics)</text>
+  </g>
+
+  <!-- samples row -->
+  <g>
+    <title>High-frequency raw measurements collected at a fixed sampling interval.</title>
+
+    <use href="#sampleMark" x="220" y="42" />
+    <use href="#sampleMark" x="238" y="42" />
+    <use href="#sampleMark" x="256" y="42" />
+    <use href="#sampleMark" x="274" y="42" />
+    <use href="#sampleMark" x="292" y="42" />
+    <use href="#sampleMark" x="310" y="42" />
+    <use href="#sampleMark" x="328" y="42" />
+    <use href="#sampleMark" x="346" y="42" />
+    <use href="#sampleMark" x="364" y="42" />
+    <use href="#sampleMark" x="382" y="42" />
+    <use href="#sampleMark" x="400" y="42" />
+    <use href="#sampleMark" x="418" y="42" />
+    <use href="#sampleMark" x="436" y="42" />
+    <use href="#sampleMark" x="454" y="42" />
+    <use href="#sampleMark" x="472" y="42" />
+    <use href="#sampleMark" x="490" y="42" />
+    <use href="#sampleMark" x="508" y="42" />
+    <use href="#sampleMark" x="526" y="42" />
+    <use href="#sampleMark" x="544" y="42" />
+    <use href="#sampleMark" x="562" y="42" />
+    <use href="#sampleMark" x="580" y="42" />
+    <use href="#sampleMark" x="598" y="42" />
+    <use href="#sampleMark" x="616" y="42" />
+    <use href="#sampleMark" x="634" y="42" />
+    <use href="#sampleMark" x="652" y="42" />
+    <use href="#sampleMark" x="670" y="42" />
+    <use href="#sampleMark" x="688" y="42" />
+    <use href="#sampleMark" x="706" y="42" />
+    <use href="#sampleMark" x="724" y="42" />
+    <use href="#sampleMark" x="742" y="42" />
+    <use href="#sampleMark" x="760" y="42" />
+    <use href="#sampleMark" x="778" y="42" />
+    <use href="#sampleMark" x="796" y="42" />
+    <use href="#sampleMark" x="814" y="42" />
+    <use href="#sampleMark" x="832" y="42" />
+    <use href="#sampleMark" x="850" y="42" />
+    <use href="#sampleMark" x="868" y="42" />
+    <use href="#sampleMark" x="886" y="42" />
+    <use href="#sampleMark" x="904" y="42" />
+    <use href="#sampleMark" x="922" y="42" />
+    <use href="#sampleMark" x="940" y="42" />
+    <use href="#sampleMark" x="958" y="42" />
+    <use href="#sampleMark" x="976" y="42" />
+    <use href="#sampleMark" x="994" y="42" />
+    <use href="#sampleMark" x="1012" y="42" />
+    <use href="#sampleMark" x="1030" y="42" />
+  </g>
+
+  <!-- sampling interval annotation -->
+  <g>
+    <title>Sampling interval: the time between two adjacent raw samples.</title>
+
+    <text class="annotation" x="333" y="81" text-anchor="middle">Sampling interval</text>
+
+    <line class="fine-guide" x1="220" y1="80" x2="220" y2="112" />
+    <line class="fine-guide" x1="238" y1="80" x2="238" y2="112" />
+
+    <line
+      class="interval"
+      x1="220"
+      y1="104"
+      x2="238"
+      y2="104"
+      marker-start="url(#thinArrowStart)"
+      marker-end="url(#thinArrowEnd)"
+    />
+
+    <line class="guide" x1="198" y1="104" x2="218" y2="104" />
+    <line class="guide" x1="240" y1="104" x2="260" y2="104" />
+  </g>
+
+  <!-- records row -->
+  <g>
+    <title>Stored records are generated at a coarser recording interval from the sampled data stream.</title>
+
+    <use href="#recordMark" x="220" y="175" />
+    <use href="#recordMark" x="310" y="175" />
+    <use href="#recordMark" x="400" y="175" />
+    <use href="#recordMark" x="490" y="175" />
+    <use href="#recordMark" x="580" y="175" />
+    <use href="#recordMark" x="670" y="175" />
+    <use href="#recordMark" x="760" y="175" />
+    <use href="#recordMark" x="850" y="175" />
+    <use href="#recordMark" x="940" y="175" />
+    <use href="#recordMark" x="1030" y="175" />
+  </g>
+
+  <!-- recording interval annotation -->
+  <g>
+    <title>Recording interval τ: multiple raw samples are aggregated or selected into one stored record.</title>
+
+    <line class="fine-guide" x1="220" y1="214" x2="220" y2="260" />
+    <line class="fine-guide" x1="310" y1="214" x2="310" y2="260" />
+
+    <line
+      class="interval"
+      x1="220"
+      y1="252"
+      x2="310"
+      y2="252"
+      marker-start="url(#thinArrowStart)"
+      marker-end="url(#thinArrowEnd)"
+    />
+
+    <text class="annotation" x="365" y="306" text-anchor="middle">
+      Recording interval
+      <tspan class="mono"> (τ)</tspan>
+    </text>
+
+    <path
+      d="M 292 286 C 278 273, 260 263, 239 255"
+      fill="none"
+      stroke="#74869a"
+      stroke-width="1.6"
+      stroke-linecap="round"
+    />
+    <path
+      d="M 330 286 C 316 273, 306 263, 298 255"
+      fill="none"
+      stroke="#74869a"
+      stroke-width="1.6"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- reports row -->
+  <g>
+    <title>Reports summarize records over a longer reporting period to produce parameters and metrics.</title>
+
+    <use href="#reportMark" x="220" y="315" />
+    <use href="#reportMark" x="940" y="315" />
+  </g>
+
+  <!-- reporting period annotation -->
+  <g>
+    <title>Reporting period: time window used to compute summary parameters and metrics.</title>
+
+    <line class="fine-guide" x1="220" y1="342" x2="220" y2="396" />
+    <line class="fine-guide" x1="940" y1="342" x2="940" y2="396" />
+
+    <text class="annotation" x="580" y="368" text-anchor="middle">Reporting period</text>
+
+    <line
+      class="period"
+      x1="220"
+      y1="388"
+      x2="940"
+      y2="388"
+      marker-start="url(#thinArrowStart)"
+      marker-end="url(#thinArrowEnd)"
+    />
+
+    <line class="guide" x1="202" y1="388" x2="220" y2="388" />
+    <line class="guide" x1="940" y1="388" x2="960" y2="388" />
+  </g>
+
+  <!-- relation hints -->
+  <g opacity="0.72">
+    <title>Dashed auxiliary paths indicate aggregation from dense samples to records and from records to reports.</title>
+
+    <path
+      d="M 220 96 C 220 125, 220 145, 220 168"
+      fill="none"
+      stroke="#7fa1ad"
+      stroke-width="1.4"
+      stroke-dasharray="5 6"
+    />
+    <path
+      d="M 310 96 C 310 125, 310 145, 310 168"
+      fill="none"
+      stroke="#7fa1ad"
+      stroke-width="1.4"
+      stroke-dasharray="5 6"
+    />
+    <path
+      d="M 220 237 C 220 260, 220 285, 220 305"
+      fill="none"
+      stroke="#b98598"
+      stroke-width="1.5"
+      stroke-dasharray="5 6"
+    />
+    <path
+      d="M 940 237 C 940 260, 940 285, 940 305"
+      fill="none"
+      stroke="#b98598"
+      stroke-width="1.5"
+      stroke-dasharray="5 6"
+    />
+  </g>
+
+  <!-- time axis -->
+  <g>
+    <title>Time increases from left to right.</title>
+
+    <line
+      class="axis"
+      x1="220"
+      y1="468"
+      x2="1046"
+      y2="468"
+      marker-end="url(#arrowEnd)"
+    />
+
+    <text class="axis-text" x="1028" y="501" text-anchor="middle">Time</text>
+    <text class="axis-sub" x="1050" y="526" text-anchor="middle">IEC</text>
+  </g>
+</svg>

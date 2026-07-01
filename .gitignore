@@ -303,7 +303,7 @@ dist-ssr
 !.vscode/extensions.json
 
 # messy
-refs/
+big_files/
 # RTE minimal experiment generated outputs
 /data/outputs/
 /experiments/outputs/
