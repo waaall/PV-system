@@ -90,9 +90,9 @@ __pycache__/
 
 # project
 /csv-data
-*.png
-*.jpg
-*.jpeg
+# *.png
+# *.jpg
+# *.jpeg
 
 # Distribution / packaging
 .Python
