@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" fill="none">
+  <defs>
+    <marker id="arrow-main" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+
+    <marker id="arrow-aux" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+
+    <style>
+      .layer-label {
+        font-family: "Inter", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        fill: #475569;
+        letter-spacing: 0.5px;
+      }
+
+      .node-title {
+        font-family: "Inter", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        fill: #0f172a;
+      }
+
+      .node-subtitle {
+        font-family: "Inter", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        fill: #64748b;
+        letter-spacing: 0.2px;
+      }
+
+      .small-title {
+        font-size: 18px;
+      }
+
+      .formula {
+        font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        fill: #64748b;
+      }
+
+      .node {
+        stroke-width: 1.4;
+        rx: 14;
+        ry: 14;
+      }
+
+      .main-line {
+        stroke: #64748b;
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        marker-end: url(#arrow-main);
+      }
+
+      .plain-line {
+        stroke: #64748b;
+        stroke-width: 1.6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .aux-line {
+        stroke: #94a3b8;
+        stroke-width: 1.4;
+        stroke-dasharray: 6 6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        marker-end: url(#arrow-aux);
+      }
+
+      .dash-box {
+        stroke: #94a3b8;
+        stroke-width: 1.4;
+        stroke-dasharray: 8 8;
+        rx: 18;
+        ry: 18;
+      }
+
+      .bus {
+        stroke: #475569;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+
+  <!-- Layer guide bands: transparent-background friendly -->
+  <rect x="34" y="22" width="1052" height="96" rx="22" fill="#f8fafc" opacity="0.62"/>
+  <rect x="34" y="126" width="1052" height="88" rx="22" fill="#f1f5f9" opacity="0.48"/>
+  <rect x="34" y="224" width="1052" height="130" rx="22" fill="#f8fafc" opacity="0.54"/>
+  <rect x="34" y="362" width="1052" height="70" rx="22" fill="#f1f5f9" opacity="0.50"/>
+  <rect x="34" y="440" width="1052" height="280" rx="22" fill="#f8fafc" opacity="0.60"/>
+
+  <!-- Left layer labels -->
+  <text x="68" y="76" class="layer-label">调度中心</text>
+  <text x="68" y="177" class="layer-label">纵向安全</text>
+  <text x="68" y="286" class="layer-label">站端通信</text>
+  <text x="68" y="542" class="layer-label">站内控制</text>
+  <text x="68" y="640" class="layer-label">设备 / 预测</text>
+
+  <!-- Main top node -->
+  <g>
+    <title>电网调度系统：上级调度侧下发控制指令，并接收站端运行状态。</title>
+    <rect class="node" x="330" y="30" width="460" height="58" fill="#eef2ff" stroke="#818cf8"/>
+    <text x="560" y="59" text-anchor="middle" class="node-title">电网调度系统</text>
+    <text x="560" y="78" text-anchor="middle" class="node-subtitle">调度指令 · 运行状态 · 电网侧协调</text>
+  </g>
+
+  <!-- Security node -->
+  <g>
+    <title>纵向加密：对调度中心与站端控制区之间的纵向通信进行安全隔离和加密认证。</title>
+    <rect class="node" x="445" y="144" width="230" height="56" fill="#f1f5f9" stroke="#94a3b8"/>
+    <text x="560" y="171" text-anchor="middle" class="node-title small-title">纵向加密</text>
+    <text x="560" y="190" text-anchor="middle" class="node-subtitle">安全隧道 · 认证接入</text>
+  </g>
+
+  <!-- Dashed communication security boundary -->
+  <g>
+    <title>站端调度接入边界：包含远动通信与升压站综合自动化系统。</title>
+    <rect class="dash-box" x="250" y="236" width="620" height="112" fill="#ffffff" opacity="0.82"/>
+    <text x="270" y="257" class="node-subtitle">调度接入区 / 站端自动化边界</text>
+  </g>
+
+  <!-- RTU -->
+  <g>
+    <title>远动通信装置：承接调度侧遥测、遥信、遥控、遥调数据交换。</title>
+    <rect class="node" x="295" y="278" width="210" height="54" fill="#ecfeff" stroke="#67e8f9"/>
+    <text x="400" y="303" text-anchor="middle" class="node-title small-title">远动通信装置</text>
+    <text x="400" y="322" text-anchor="middle" class="node-subtitle">遥测 / 遥信 / 遥控 / 遥调</text>
+  </g>
+
+  <!-- Substation automation -->
+  <g>
+    <title>光伏发电站升压站综合自动化系统：汇聚升压站一次、二次设备状态，并参与站端控制闭环。</title>
+    <rect class="node" x="570" y="264" width="250" height="68" fill="#ecfdf5" stroke="#86efac"/>
+    <text x="695" y="291" text-anchor="middle" class="node-title small-title">光伏发电站升压站</text>
+    <text x="695" y="314" text-anchor="middle" class="node-title small-title">综合自动化系统</text>
+  </g>
+
+  <!-- Reactive compensation -->
+  <g>
+    <title>无功补偿装置：根据电压、功率因数与无功目标参与站端电压无功调节。</title>
+    <rect class="node" x="890" y="264" width="180" height="68" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="980" y="294" text-anchor="middle" class="node-title small-title">无功补偿装置</text>
+    <text x="980" y="316" text-anchor="middle" class="node-subtitle">SVG / SVC / 电容组</text>
+  </g>
+
+  <!-- Control area bus -->
+  <g>
+    <title>控制区网络：站内控制系统共享的实时数据总线。</title>
+    <line x1="180" y1="386" x2="880" y2="386" class="bus"/>
+    <text x="134" y="391" text-anchor="end" class="layer-label">控制区网络</text>
+  </g>
+
+  <!-- Monitoring system -->
+  <g>
+    <title>光伏发电站监控系统：采集逆变器、箱变、汇流箱与站内设备状态，形成运行监视画面。</title>
+    <rect class="node" x="230" y="462" width="220" height="78" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="340" y="493" text-anchor="middle" class="node-title small-title">光伏发电站</text>
+    <text x="340" y="517" text-anchor="middle" class="node-title small-title">监控系统</text>
+  </g>
+
+  <!-- Power control system -->
+  <g>
+    <title>光伏发电站功率控制系统：根据调度目标、站端状态和预测数据计算有功 / 无功控制量。</title>
+    <rect class="node" x="500" y="462" width="250" height="78" fill="#fdf2f8" stroke="#f9a8d4"/>
+    <text x="625" y="493" text-anchor="middle" class="node-title small-title">光伏发电站</text>
+    <text x="625" y="517" text-anchor="middle" class="node-title small-title">功率控制系统</text>
+    <text x="625" y="535" text-anchor="middle" class="formula">P*, Q* → setpoints</text>
+  </g>
+
+  <!-- Logic isolation -->
+  <g>
+    <title>逻辑隔离：在控制区与预测 / 管理侧之间建立单向或受控数据交换边界。</title>
+    <rect class="node" x="805" y="462" width="190" height="78" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="900" y="497" text-anchor="middle" class="node-title small-title">逻辑隔离</text>
+    <text x="900" y="520" text-anchor="middle" class="node-subtitle">边界防护 · 数据摆渡</text>
+  </g>
+
+  <!-- Inverter -->
+  <g>
+    <title>光伏逆变器：执行功率控制指令，并回传运行、电压、电流和故障状态。</title>
+    <rect class="node" x="250" y="620" width="180" height="64" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="340" y="648" text-anchor="middle" class="node-title small-title">光伏逆变器</text>
+    <text x="340" y="671" text-anchor="middle" class="node-subtitle">执行控制 · 状态回传</text>
+  </g>
+
+  <!-- Forecast system -->
+  <g>
+    <title>功率预测系统：输出短期 / 超短期发电预测，为功率控制提供前馈约束。</title>
+    <rect class="node" x="810" y="620" width="180" height="64" fill="#fefce8" stroke="#fde68a"/>
+    <text x="900" y="648" text-anchor="middle" class="node-title small-title">功率预测系统</text>
+    <text x="900" y="671" text-anchor="middle" class="node-subtitle">气象 → P forecast</text>
+  </g>
+
+  <!-- Primary vertical flow -->
+  <path d="M560 88 L560 144" class="main-line"/>
+  <path d="M560 200 L560 236" class="main-line"/>
+  <path d="M560 236 L400 236 L400 278" class="main-line"/>
+  <path d="M560 236 L695 236 L695 264" class="main-line"/>
+
+  <!-- Lines from communication layer to control bus -->
+  <path d="M400 332 L400 386" class="plain-line"/>
+  <path d="M695 332 L695 386" class="plain-line"/>
+  <path d="M980 332 L980 386 L880 386" class="plain-line"/>
+
+  <!-- Auxiliary path to reactive compensation -->
+  <path d="M820 298 L890 298" class="aux-line"/>
+
+  <!-- Branches from control bus -->
+  <path d="M340 386 L340 462" class="main-line"/>
+  <path d="M625 386 L625 462" class="main-line"/>
+  <path d="M900 386 L900 462" class="main-line"/>
+
+  <!-- Lower connections -->
+  <path d="M340 540 L340 620" class="main-line"/>
+  <path d="M900 540 L900 620" class="main-line"/>
+
+  <!-- Feedback and constraint paths -->
+  <path d="M430 650 C520 702 690 704 810 652" class="aux-line"/>
+  <text x="625" y="710" text-anchor="middle" class="node-subtitle">逆变器实测与功率预测共同校正控制目标</text>
+
+  <path d="M810 638 C735 604 698 570 655 540" class="aux-line"/>
+  <text x="760" y="588" text-anchor="middle" class="node-subtitle">预测前馈</text>
+
+  <path d="M450 501 L500 501" class="aux-line"/>
+  <text x="475" y="488" text-anchor="middle" class="node-subtitle">运行量</text>
+
+  <!-- Legend -->
+  <g transform="translate(830, 42)">
+    <title>图例：实线表示主流程，虚线表示辅助、校准或约束路径。</title>
+    <rect x="0" y="0" width="220" height="70" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+    <line x1="18" y1="24" x2="76" y2="24" class="main-line"/>
+    <text x="92" y="29" class="node-subtitle">主流程 / 控制链路</text>
+    <line x1="18" y1="50" x2="76" y2="50" class="aux-line"/>
+    <text x="92" y="55" class="node-subtitle">辅助 / 反馈 / 约束</text>
+  </g>
+</svg>
