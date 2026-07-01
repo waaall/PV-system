@@ -1,0 +1,532 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img" aria-labelledby="title desc">
+  <title id="title">光伏电站监控、继电保护、辅助系统与数值天气预报网络架构图</title>
+  <desc id="desc">包含站控层、间隔层、安全区 II、安全区 III/IV、外网数值天气预报服务，以及光纤通信、硬件防火墙、正反向隔离和上级调度信息通道。</desc>
+
+  <defs>
+    <style>
+      :root {
+        --ink: #24313a;
+        --muted: #6a7a84;
+        --line: #9daeb7;
+        --soft-line: #dbe4e8;
+        --station: #edf5f7;
+        --field: #f6f7ef;
+        --security: #f2f4fb;
+        --weather: #f8f2ea;
+        --accent: #58788b;
+        --accent-2: #748a69;
+        --accent-3: #757ea2;
+        --accent-4: #a18063;
+      }
+
+      text {
+        font-family: "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+        fill: var(--ink);
+      }
+
+      .zone-title {
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .layer-label {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .group-label {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .node-title {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .node-subtitle {
+        font-size: 12px;
+        fill: var(--muted);
+      }
+
+      .tiny {
+        font-size: 12px;
+        fill: var(--muted);
+      }
+
+      .upstream-label {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .outer-zone {
+        fill: none;
+        stroke: var(--ink);
+        stroke-width: 1.25;
+      }
+
+      .divider {
+        stroke: #7e8c94;
+        stroke-width: 1;
+        stroke-dasharray: 2 7;
+      }
+
+      .network-line {
+        stroke: #5f7079;
+        stroke-width: 1.35;
+        fill: none;
+      }
+
+      .data-line {
+        stroke: #536c79;
+        stroke-width: 1.5;
+        fill: none;
+      }
+
+      .aux-line {
+        stroke: #80929b;
+        stroke-width: 1.15;
+        fill: none;
+        stroke-dasharray: 5 5;
+      }
+
+      .branch-line {
+        stroke: #73858e;
+        stroke-width: 1.1;
+        fill: none;
+      }
+
+      .node {
+        stroke: #617681;
+        stroke-width: 1.2;
+        rx: 9;
+        ry: 9;
+      }
+
+      .node-station {
+        fill: var(--station);
+      }
+
+      .node-field {
+        fill: var(--field);
+      }
+
+      .node-security {
+        fill: var(--security);
+      }
+
+      .node-weather {
+        fill: var(--weather);
+      }
+
+      .group-box {
+        fill: rgba(255,255,255,.34);
+        stroke: #82939b;
+        stroke-width: 1.1;
+        stroke-dasharray: 7 6;
+        rx: 12;
+        ry: 12;
+      }
+
+      .network-band {
+        fill: #f7fbfc;
+        stroke: #788a93;
+        stroke-width: 1.1;
+        rx: 8;
+        ry: 8;
+      }
+
+      .firewall {
+        fill: #f2ecea;
+        stroke: #7f625c;
+        stroke-width: 1.15;
+        rx: 5;
+        ry: 5;
+      }
+
+      .isolation {
+        fill: #f1f0f7;
+        stroke: #706f91;
+        stroke-width: 1.15;
+        rx: 5;
+        ry: 5;
+      }
+
+      .tag {
+        fill: #ffffff;
+        stroke: #d2dde1;
+        stroke-width: 1;
+        rx: 12;
+        ry: 12;
+      }
+    </style>
+
+    <marker id="arrow-dark" markerWidth="8" markerHeight="8" refX="6.6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#536c79"/>
+    </marker>
+
+    <marker id="arrow-muted" markerWidth="8" markerHeight="8" refX="6.6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#80929b"/>
+    </marker>
+  </defs>
+
+  <!-- 主区域：站控层 -->
+  <rect class="outer-zone" x="10" y="134" width="720" height="796" rx="4"/>
+
+  <rect class="tag" x="22" y="184" width="44" height="118"/>
+  <text class="layer-label" x="44" y="205" text-anchor="middle">
+    <tspan x="44" dy="0">站</tspan>
+    <tspan x="44" dy="25">控</tspan>
+    <tspan x="44" dy="25">层</tspan>
+  </text>
+
+  <!-- 站控层上送 -->
+  <path class="data-line" d="M355 165 L355 65" marker-end="url(#arrow-dark)"/>
+  <text class="upstream-label" x="355" y="39" text-anchor="middle">
+    <tspan x="355" dy="0">远动信息至</tspan>
+    <tspan x="355" dy="18">各级调度</tspan>
+  </text>
+
+  <!-- 光伏发电站监控系统 -->
+  <g>
+    <title>光伏发电站监控系统：站内集中监视、告警、数据汇聚与远动通信。</title>
+    <rect class="node node-station" x="292" y="166" width="130" height="151"/>
+    <text class="node-title" x="357" y="232" text-anchor="middle">
+      <tspan x="357" dy="0">光伏发电站</tspan>
+      <tspan x="357" dy="23">监控系统</tspan>
+    </text>
+  </g>
+
+  <!-- 站控通信网络 -->
+  <rect class="network-band" x="47" y="360" width="675" height="42"/>
+  <text class="group-label" x="85" y="386">光纤通讯网络</text>
+
+  <path class="data-line" d="M357 317 L357 360"/>
+  <path class="network-line" d="M47 402 H722"/>
+
+  <!-- 与安全区 II 主链路 -->
+  <path class="data-line" d="M422 242 H786"/>
+  <path class="data-line" d="M447 360 H786"/>
+
+  <!-- 间隔层 -->
+  <line class="divider" x1="10" y1="474" x2="730" y2="474"/>
+  <rect class="tag" x="16" y="651" width="48" height="88"/>
+  <text class="layer-label" x="40" y="677" text-anchor="middle">
+    <tspan x="40" dy="0">间</tspan>
+    <tspan x="40" dy="25">隔</tspan>
+    <tspan x="40" dy="25">层</tspan>
+  </text>
+
+  <!-- 光伏发电单元 -->
+  <g>
+    <rect class="group-box" x="49" y="517" width="184" height="413"/>
+    <text class="group-label" x="141" y="889" text-anchor="middle">光伏发电单元</text>
+
+    <path class="branch-line" d="M91 402 V654"/>
+    <path class="branch-line" d="M188 402 V654"/>
+
+    <g>
+      <title>光伏发电单元规约转换器 1：现场设备通信协议转换与数据接入。</title>
+      <rect class="node node-field" x="56" y="654" width="70" height="150"/>
+      <text class="node-title" x="91" y="706" text-anchor="middle">
+        <tspan x="91" dy="0">光伏发电</tspan>
+        <tspan x="91" dy="20">单元规约</tspan>
+        <tspan x="91" dy="20">转换器 1</tspan>
+      </text>
+    </g>
+
+    <g>
+      <title>光伏发电单元规约转换器 2：现场设备通信协议转换与数据接入。</title>
+      <rect class="node node-field" x="153" y="654" width="70" height="150"/>
+      <text class="node-title" x="188" y="706" text-anchor="middle">
+        <tspan x="188" dy="0">光伏发电</tspan>
+        <tspan x="188" dy="20">单元规约</tspan>
+        <tspan x="188" dy="20">转换器 2</tspan>
+      </text>
+    </g>
+
+    <path class="aux-line" d="M126 729 H153"/>
+  </g>
+
+  <!-- 户外气象观测设备 -->
+  <g>
+    <rect class="group-box" x="259" y="517" width="169" height="413"/>
+    <text class="group-label" x="343" y="889" text-anchor="middle">户外气象观测设备</text>
+
+    <path class="branch-line" d="M299 402 V628"/>
+    <path class="branch-line" d="M388 402 V628"/>
+
+    <g>
+      <title>全天空成像仪通信控制单元：上传天空图像、云量与辐照相关信息。</title>
+      <rect class="node node-field" x="268" y="628" width="62" height="179"/>
+      <rect class="node node-field" x="274" y="620" width="62" height="179"/>
+      <rect class="node node-field" x="280" y="612" width="62" height="179"/>
+      <text class="node-title" x="311" y="680" text-anchor="middle">
+        <tspan x="311" dy="0">全天空</tspan>
+        <tspan x="311" dy="19">成像仪</tspan>
+        <tspan x="311" dy="19">通信控制</tspan>
+        <tspan x="311" dy="19">单元</tspan>
+      </text>
+    </g>
+
+    <g>
+      <title>气象观测站通信控制单元：采集风速、辐照、温湿度等现场气象数据。</title>
+      <rect class="node node-field" x="354" y="628" width="63" height="179"/>
+      <text class="node-title" x="385" y="680" text-anchor="middle">
+        <tspan x="385" dy="0">气象观</tspan>
+        <tspan x="385" dy="19">测站通信</tspan>
+        <tspan x="385" dy="19">控制</tspan>
+        <tspan x="385" dy="19">单元</tspan>
+      </text>
+    </g>
+
+    <text class="tiny" x="342" y="548" text-anchor="middle">
+      <tspan x="342" dy="0">光纤、VHF</tspan>
+      <tspan x="342" dy="16">或 GPRS</tspan>
+      <tspan x="342" dy="16">（使用 GPRS</tspan>
+      <tspan x="342" dy="16">需反向隔离</tspan>
+      <tspan x="342" dy="16">装置）</tspan>
+    </text>
+  </g>
+
+  <!-- 光伏发电站主控室/逆变器小室 -->
+  <g>
+    <rect class="group-box" x="445" y="517" width="168" height="413"/>
+    <text class="group-label" x="529" y="871" text-anchor="middle">
+      <tspan x="529" dy="0">光伏发电站主控室</tspan>
+      <tspan x="529" dy="18">或逆变器小室内</tspan>
+      <tspan x="529" dy="18">测控装置</tspan>
+    </text>
+
+    <path class="branch-line" d="M486 402 V618"/>
+    <path class="branch-line" d="M571 402 V618"/>
+
+    <g>
+      <title>继电保护装置：完成保护测量、保护动作与事件记录。</title>
+      <rect class="node node-field" x="466" y="633" width="62" height="163"/>
+      <rect class="node node-field" x="472" y="625" width="62" height="163"/>
+      <rect class="node node-field" x="478" y="617" width="62" height="163"/>
+      <text class="node-title" x="509" y="685" text-anchor="middle">
+        <tspan x="509" dy="0">继电</tspan>
+        <tspan x="509" dy="21">保护</tspan>
+        <tspan x="509" dy="21">装置</tspan>
+      </text>
+    </g>
+
+    <g>
+      <title>测控装置：执行现场监测、遥信、遥测、遥控等功能。</title>
+      <rect class="node node-field" x="553" y="633" width="62" height="163"/>
+      <rect class="node node-field" x="559" y="625" width="62" height="163"/>
+      <rect class="node node-field" x="565" y="617" width="62" height="163"/>
+      <text class="node-title" x="596" y="685" text-anchor="middle">
+        <tspan x="596" dy="0">测控</tspan>
+        <tspan x="596" dy="21">装置</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- 其他设备 -->
+  <g>
+    <rect class="group-box" x="628" y="517" width="86" height="413"/>
+    <text class="group-label" x="671" y="889" text-anchor="middle">其他设备</text>
+
+    <path class="branch-line" d="M671 402 V619"/>
+
+    <g>
+      <title>直流与 UPS 通信控制单元：获取站内直流系统、UPS 等辅助电源状态。</title>
+      <rect class="node node-field" x="641" y="634" width="57" height="162"/>
+      <rect class="node node-field" x="647" y="626" width="57" height="162"/>
+      <rect class="node node-field" x="653" y="618" width="57" height="162"/>
+      <text class="node-title" x="682" y="674" text-anchor="middle">
+        <tspan x="682" dy="0">直流 /</tspan>
+        <tspan x="682" dy="20">UPS</tspan>
+        <tspan x="682" dy="20">通信</tspan>
+        <tspan x="682" dy="20">控制</tspan>
+        <tspan x="682" dy="20">单元</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- 区域隔离分界 -->
+  <line class="divider" x1="750" y1="0" x2="750" y2="930"/>
+
+  <!-- 安全区 II 左侧硬件防火墙 -->
+  <g>
+    <rect class="firewall" x="758" y="159" width="23" height="168"/>
+    <text class="group-label" x="770" y="195" text-anchor="middle">
+      <tspan x="770" dy="0">硬</tspan>
+      <tspan x="770" dy="18">件</tspan>
+      <tspan x="770" dy="18">防</tspan>
+      <tspan x="770" dy="18">火</tspan>
+      <tspan x="770" dy="18">墙</tspan>
+    </text>
+  </g>
+
+  <!-- 安全区 II -->
+  <rect class="outer-zone" x="795" y="120" width="442" height="810" rx="4"/>
+  <text class="zone-title" x="1016" y="100" text-anchor="middle">安全区 II</text>
+
+  <!-- II 区上送信息 -->
+  <path class="data-line" d="M864 169 V64" marker-end="url(#arrow-dark)"/>
+  <text class="upstream-label" x="864" y="32" text-anchor="middle">
+    <tspan x="864" dy="0">继电保护信息</tspan>
+    <tspan x="864" dy="18">至各级调度</tspan>
+  </text>
+
+  <path class="data-line" d="M1005 168 V64" marker-end="url(#arrow-dark)"/>
+  <text class="upstream-label" x="1005" y="32" text-anchor="middle">
+    <tspan x="1005" dy="0">视频等辅助信息至</tspan>
+    <tspan x="1005" dy="18">上级管理部门</tspan>
+  </text>
+
+  <path class="data-line" d="M1173 168 V64" marker-end="url(#arrow-dark)"/>
+  <text class="upstream-label" x="1173" y="32" text-anchor="middle">
+    <tspan x="1173" dy="0">预测结果至</tspan>
+    <tspan x="1173" dy="18">各级调度</tspan>
+  </text>
+
+  <!-- II 区系统 -->
+  <g>
+    <title>继电保护信息管理系统：汇聚保护事件、定值、录波与告警信息，并向调度侧提供数据。</title>
+    <rect class="node node-security" x="807" y="168" width="118" height="152"/>
+    <text class="node-title" x="866" y="229" text-anchor="middle">
+      <tspan x="866" dy="0">继电保护信息</tspan>
+      <tspan x="866" dy="23">管理系统</tspan>
+    </text>
+  </g>
+
+  <g>
+    <title>辅助系统综合监控系统：集中监控视频、安防、环境、辅助设备等信息。</title>
+    <rect class="node node-security" x="944" y="168" width="118" height="152"/>
+    <text class="node-title" x="1003" y="229" text-anchor="middle">
+      <tspan x="1003" dy="0">辅助系统综</tspan>
+      <tspan x="1003" dy="23">合监控系统</tspan>
+    </text>
+  </g>
+
+  <g>
+    <title>功率预测系统：融合电站运行数据、气象观测数据及数值天气预报，形成发电功率预测结果。</title>
+    <rect class="node node-security" x="1110" y="168" width="118" height="152"/>
+    <text class="node-title" x="1169" y="229" text-anchor="middle">
+      <tspan x="1169" dy="0">功率预测</tspan>
+      <tspan x="1169" dy="23">系统</tspan>
+    </text>
+  </g>
+
+  <!-- 安全区 II 通信网络 -->
+  <rect class="network-band" x="973" y="382" width="236" height="78"/>
+  <text class="group-label" x="1091" y="419" text-anchor="middle">
+    <tspan x="1091" dy="0">光纤通讯网络 /</tspan>
+    <tspan x="1091" dy="20">模拟线路 / 无线网络</tspan>
+  </text>
+
+  <path class="data-line" d="M786 242 H807"/>
+  <path class="data-line" d="M786 360 H864 V320"/>
+  <path class="data-line" d="M925 242 H944"/>
+  <path class="data-line" d="M1062 242 H1110"/>
+  <path class="data-line" d="M1004 320 V382"/>
+  <path class="data-line" d="M1086 320 V382"/>
+  <path class="data-line" d="M1169 320 V382"/>
+
+  <!-- 辅助系统 -->
+  <g>
+    <rect class="group-box" x="968" y="500" width="240" height="414"/>
+    <text class="group-label" x="1088" y="894" text-anchor="middle">辅助系统</text>
+
+    <path class="branch-line" d="M1035 460 V654"/>
+    <path class="branch-line" d="M1154 460 V654"/>
+
+    <g>
+      <title>辅助单元通信控制单元 1：接入辅助设备、安防和环境监测类数据。</title>
+      <rect class="node node-security" x="988" y="654" width="94" height="152"/>
+      <text class="node-title" x="1035" y="714" text-anchor="middle">
+        <tspan x="1035" dy="0">辅助单元</tspan>
+        <tspan x="1035" dy="22">通信控制</tspan>
+        <tspan x="1035" dy="22">单元 1</tspan>
+      </text>
+    </g>
+
+    <g>
+      <title>辅助单元通信控制单元 2：接入辅助设备、安防和环境监测类数据。</title>
+      <rect class="node node-security" x="1107" y="654" width="94" height="152"/>
+      <text class="node-title" x="1154" y="714" text-anchor="middle">
+        <tspan x="1154" dy="0">辅助单元</tspan>
+        <tspan x="1154" dy="22">通信控制</tspan>
+        <tspan x="1154" dy="22">单元 2</tspan>
+      </text>
+    </g>
+
+    <path class="aux-line" d="M1082 730 H1107"/>
+  </g>
+
+  <!-- III/IV 区 -->
+  <rect class="outer-zone" x="1306" y="7" width="112" height="923" rx="4"/>
+  <text class="zone-title" x="1362" y="100" text-anchor="middle">安全区 III/IV</text>
+
+  <!-- 正/反向隔离 -->
+  <g>
+    <title>正向/反向隔离装置：实现安全区之间的受控数据交换与网络隔离。</title>
+    <rect class="isolation" x="1253" y="160" width="42" height="164"/>
+    <text class="group-label" x="1274" y="208" text-anchor="middle">
+      <tspan x="1274" dy="0">正 /</tspan>
+      <tspan x="1274" dy="20">反向</tspan>
+      <tspan x="1274" dy="20">隔离</tspan>
+    </text>
+  </g>
+
+  <!-- 天气预报下载工作站 -->
+  <g>
+    <title>数值天气预报下载工作站：通过隔离边界下载外网数值天气预报数据，并向功率预测系统提供气象输入。</title>
+    <rect class="node node-weather" x="1323" y="163" width="76" height="151"/>
+    <text class="node-title" x="1361" y="222" text-anchor="middle">
+      <tspan x="1361" dy="0">数值天气</tspan>
+      <tspan x="1361" dy="22">预报下载</tspan>
+      <tspan x="1361" dy="22">工作站</tspan>
+    </text>
+  </g>
+
+  <path class="data-line" d="M1237 242 H1253"/>
+  <path class="data-line" d="M1295 242 H1323"/>
+
+  <!-- 外网硬件防火墙 -->
+  <g>
+    <rect class="firewall" x="1431" y="159" width="23" height="168"/>
+    <text class="group-label" x="1442" y="195" text-anchor="middle">
+      <tspan x="1442" dy="0">硬</tspan>
+      <tspan x="1442" dy="18">件</tspan>
+      <tspan x="1442" dy="18">防</tspan>
+      <tspan x="1442" dy="18">火</tspan>
+      <tspan x="1442" dy="18">墙</tspan>
+    </text>
+  </g>
+
+  <path class="data-line" d="M1399 242 H1431"/>
+
+  <!-- 外网 -->
+  <rect class="outer-zone" x="1464" y="7" width="126" height="923" rx="4"/>
+  <text class="zone-title" x="1527" y="108" text-anchor="middle">外网</text>
+
+  <g>
+    <title>数值天气预报：外部气象服务提供的数值天气预报数据源。</title>
+    <rect class="node node-weather" x="1482" y="7" width="92" height="159"/>
+    <text class="node-title" x="1528" y="34" text-anchor="middle">
+      <tspan x="1528" dy="0">数值天气预报</tspan>
+    </text>
+  </g>
+
+  <path class="data-line" d="M1454 242 H1532 V166" marker-end="url(#arrow-dark)"/>
+
+  <!-- 视觉说明 -->
+  <g transform="translate(90, 26)">
+    <rect class="tag" x="0" y="0" width="146" height="26"/>
+    <line class="data-line" x1="12" y1="13" x2="42" y2="13" marker-end="url(#arrow-dark)"/>
+    <text class="tiny" x="54" y="17">主数据流</text>
+  </g>
+
+  <g transform="translate(248, 26)">
+    <rect class="tag" x="0" y="0" width="146" height="26"/>
+    <line class="aux-line" x1="12" y1="13" x2="42" y2="13" marker-end="url(#arrow-muted)"/>
+    <text class="tiny" x="54" y="17">辅助 / 校准流</text>
+  </g>
+</svg>
