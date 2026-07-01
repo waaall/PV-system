@@ -6,6 +6,9 @@
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#334155"/>
     </marker>
+    <marker id="arrowStart" markerWidth="10" markerHeight="10" refX="1" refY="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#334155"/>
+    </marker>
     <marker id="arrowSoft" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 Z" fill="#64748b"/>
     </marker>
@@ -102,7 +105,7 @@
   <!-- ===== 上方：组件方阵 ① ===== -->
   <g class="font">
     <text class="title" x="88" y="48">组件方阵</text>
-    <rect class="group" x="28" y="62" width="318" height="246" rx="10"/>
+    <rect class="group" x="28" y="62" width="318" height="540" rx="10"/>
 
     <!-- 组件串 -->
     <g>
@@ -115,10 +118,13 @@
       <rect class="solar" x="216" y="88" width="52" height="28" rx="3"/>
       <path class="device-line" d="M223 95 L260 102 L223 109 Z"/>
 
-      <path class="flow" d="M100 102 H132"/>
-      <path class="flow" d="M184 102 H216"/>
-      <path class="flow" d="M268 102 H316"/>
+      <path class="flow-no-arrow" d="M100 102 H132"/>
+      <path class="flow-no-arrow" d="M184 102 H216"/>
+      <path class="flow-no-arrow" d="M268 102 H396"/>
     </g>
+
+    <!-- 将太阳跟踪系统与通信控制单元作为一组标识 -->
+    <rect class="group" x="44" y="138" width="242" height="144" rx="10"/>
 
     <rect class="node asset-green" x="54" y="148" width="220" height="50"/>
     <title>太阳跟踪系统：用于调整组件姿态，提高发电效率。</title>
@@ -167,8 +173,6 @@
 
   <!-- ===== 下方：组件方阵 ② ===== -->
   <g class="font">
-    <rect class="group" x="28" y="356" width="318" height="246" rx="10"/>
-
     <!-- 组件串 -->
     <g>
       <rect class="solar" x="48" y="382" width="52" height="28" rx="3"/>
@@ -180,10 +184,13 @@
       <rect class="solar" x="216" y="382" width="52" height="28" rx="3"/>
       <path class="device-line" d="M223 389 L260 396 L223 403 Z"/>
 
-      <path class="flow" d="M100 396 H132"/>
-      <path class="flow" d="M184 396 H216"/>
-      <path class="flow" d="M268 396 H316"/>
+      <path class="flow-no-arrow" d="M100 396 H132"/>
+      <path class="flow-no-arrow" d="M184 396 H216"/>
+      <path class="flow-no-arrow" d="M268 396 H396"/>
     </g>
+
+    <!-- 将太阳跟踪系统与通信控制单元作为一组标识 -->
+    <rect class="group" x="44" y="432" width="242" height="144" rx="10"/>
 
     <rect class="node asset-green" x="54" y="442" width="220" height="50"/>
     <title>太阳跟踪系统：用于调整组件姿态，提高发电效率。</title>
@@ -216,7 +223,7 @@
 
   <!-- 下方：逆变器 -->
   <g class="font">
-    <rect class="group" x="792" y="316" width="240" height="212" rx="10"/>
+    <rect class="group" x="792" y="346" width="240" height="182" rx="10"/>
 
     <rect class="node asset-violet" x="826" y="372" width="172" height="66"/>
     <title>光伏逆变器：将直流电变换为满足并网要求的交流电。</title>
@@ -230,15 +237,13 @@
   </g>
 
   <!-- ===== 主电能路径 ===== -->
-  <path class="flow" d="M346 102 H396"/>
-  <path class="flow" d="M554 113 H598"/>
-  <path class="flow" d="M766 113 H826"/>
-  <path class="flow" d="M998 111 H1044 L1132 190"/>
+  <path class="flow-no-arrow" d="M554 102 H598"/>
+  <path class="flow-no-arrow" d="M766 102 H826"/>
+  <path class="flow" d="M998 111 H1044 L1170 190"/>
 
-  <path class="flow" d="M346 396 H396"/>
-  <path class="flow" d="M554 407 H598"/>
-  <path class="flow" d="M766 407 H826"/>
-  <path class="flow" d="M998 405 H1060 L1132 286"/>
+  <path class="flow-no-arrow" d="M554 396 H598"/>
+  <path class="flow-no-arrow" d="M766 396 H826"/>
+  <path class="flow" d="M998 405 H1060 L1203 270"/>
 
   <!-- ===== 双分裂升压变压器 ===== -->
   <g class="font">
@@ -260,17 +265,17 @@
     <title>测控装置：采集电压、电流、功率及状态量。</title>
     <text class="node-title" x="1396" y="262" text-anchor="middle">测控装置</text>
 
-    <rect class="node asset-amber" x="1284" y="304" width="156" height="50"/>
+    <rect class="node asset-amber" x="1284" y="372" width="156" height="50"/>
     <title>保护装置：执行故障检测、告警与保护逻辑。</title>
-    <text class="node-title" x="1362" y="336" text-anchor="middle">保护装置</text>
+    <text class="node-title" x="1362" y="404" text-anchor="middle">保护装置</text>
   </g>
 
   <!-- ===== 规约转换器 ===== -->
   <g class="font">
-    <rect class="node asset-blue" x="1162" y="548" width="250" height="72"/>
+    <rect class="node asset-blue" x="1102" y="548" width="250" height="72"/>
     <title>光伏发电单元规约转换器：负责现场协议与网络侧规约转换。</title>
-    <text class="node-title" x="1287" y="578" text-anchor="middle">光伏发电单元</text>
-    <text class="node-title" x="1287" y="604" text-anchor="middle">规约转换器</text>
+    <text class="node-title" x="1227" y="578" text-anchor="middle">光伏发电单元</text>
+    <text class="node-title" x="1227" y="604" text-anchor="middle">规约转换器</text>
   </g>
 
   <!-- ===== 光纤通信设备 ===== -->
@@ -286,17 +291,16 @@
     <rect x="1496" y="560" width="30" height="130" rx="15" fill="#edf3f8" stroke="#50677c" stroke-width="1.8"/>
     <path d="M1511 572 V678" stroke="#8aa0b0" stroke-width="1.2" stroke-dasharray="4 4"/>
 
-    <text class="small" x="1548" y="425">光纤</text>
-    <path class="flow" d="M1526 426 H1586"/>
+    <text class="small" x="1538" y="415">光纤</text>
+    <path class="flow" d="M1526 426 H1586" marker-start="url(#arrowStart)"/>
 
-    <text class="small" x="1548" y="635">光纤</text>
-    <path class="flow" d="M1526 636 H1586"/>
+    <text class="small" x="1538" y="625">光纤</text>
+    <path class="flow" d="M1526 636 H1586" marker-start="url(#arrowStart)"/>
   </g>
 
   <!-- 网络文字 -->
   <g class="font">
-    <text class="small" x="1450" y="588">网络</text>
-    <path class="flow" d="M1412 584 H1496"/>
+    <text class="small" x="1420" y="570">网络</text>
   </g>
 
   <!-- 图像监视 -->
@@ -309,21 +313,21 @@
   <!-- ===== 辅助通信 / 控制 / 监测路径 ===== -->
   <g>
     <!-- 上路通信链 -->
-    <path class="signal" d="M164 272 V334 H475 V220"/>
-    <path class="signal" d="M475 220 V334 H912 V218"/>
-    <path class="signal" d="M912 218 V334 H1287 V548"/>
+    <path class="signal" d="M164 282 V306 H475 V220"/>
+    <path class="signal" d="M475 220 V306 H912 V218"/>
+    <path class="signal" d="M912 218 V306 H1227 V548"/>
 
     <!-- 下路通信链 -->
-    <path class="signal" d="M164 566 V640 H475 V514"/>
+    <path class="signal" d="M164 576 V640 H475 V514"/>
     <path class="signal" d="M475 514 V640 H912 V512"/>
-    <path class="signal" d="M912 512 V640 H1287 V620"/>
+    <path class="signal" d="M912 512 V640 H1227 V620"/>
 
     <!-- 测控与保护到光纤通信设备 -->
     <path class="signal" d="M1396 280 V350 H1496"/>
-    <path class="signal" d="M1362 354 V480 H1496"/>
+    <path class="signal" d="M1362 422 V480 H1496"/>
 
     <!-- 规约转换器到上部光纤通信设备 -->
-    <path class="signal-arrow" d="M1412 584 H1496"/>
+    <path class="signal" d="M1352 584 H1496"/>
 
     <!-- 上下光通信设备逻辑连接 -->
     <path class="signal" d="M1511 480 V560"/>

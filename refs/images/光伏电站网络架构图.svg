@@ -211,7 +211,6 @@
 
   <!-- 间隔层 -->
   <line class="divider" x1="10" y1="474" x2="730" y2="474"/>
-  <rect class="tag" x="16" y="651" width="48" height="88"/>
   <text class="layer-label" x="40" y="677" text-anchor="middle">
     <tspan x="40" dy="0">间</tspan>
     <tspan x="40" dy="25">隔</tspan>
@@ -365,7 +364,7 @@
 
   <!-- 安全区 II -->
   <rect class="outer-zone" x="795" y="120" width="442" height="810" rx="4"/>
-  <text class="zone-title" x="1016" y="100" text-anchor="middle">安全区 II</text>
+  <text class="zone-title" x="1100" y="100" text-anchor="middle">安全区 II</text>
 
   <!-- II 区上送信息 -->
   <path class="data-line" d="M864 169 V64" marker-end="url(#arrow-dark)"/>
@@ -517,16 +516,4 @@
 
   <path class="data-line" d="M1454 242 H1532 V166" marker-end="url(#arrow-dark)"/>
 
-  <!-- 视觉说明 -->
-  <g transform="translate(90, 26)">
-    <rect class="tag" x="0" y="0" width="146" height="26"/>
-    <line class="data-line" x1="12" y1="13" x2="42" y2="13" marker-end="url(#arrow-dark)"/>
-    <text class="tiny" x="54" y="17">主数据流</text>
-  </g>
-
-  <g transform="translate(248, 26)">
-    <rect class="tag" x="0" y="0" width="146" height="26"/>
-    <line class="aux-line" x1="12" y1="13" x2="42" y2="13" marker-end="url(#arrow-muted)"/>
-    <text class="tiny" x="54" y="17">辅助 / 校准流</text>
-  </g>
 </svg>
